@@ -93,7 +93,10 @@ module.exports = function makeWebpackConfig(options) {
             // Compiles ES6 and ES7 into ES5 code
             test: /\.js$/,
             loader: 'babel',
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015']
+            }
         }, {
             // ASSET LOADER
             // Reference: https://github.com/webpack/file-loader
@@ -104,6 +107,7 @@ module.exports = function makeWebpackConfig(options) {
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
             loader: 'file'
         }, {
+            // HTML LOADER
             // HTML LOADER
             // Reference: https://github.com/webpack/raw-loader
             // Allow loading html through js
